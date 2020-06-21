@@ -1,0 +1,31 @@
+<!--
+	配列
+-->
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<meta charset =" UTF-8"/>
+	<title>02-005</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.1/angular.min.js"></script>
+	<script src="controller.js"></script>
+</head>
+<body ng-controller="myController">
+	<table class="table">
+		<tr>
+			<th>ISBNコード</th>
+			<th>書名</th>
+			<th>価格</th>
+			<th>出版社</th>
+			<th>刊行日</th>
+		</tr>
+		<tr ng-repeat="xxx in m_xxxlist">
+			<td>{{xxx.isbn}}</td>
+			<td>{{xxx.title}}</td>
+			<td>{{xxx.price}}</td>
+			<td>{{xxx.publish}}</td>
+			<td>{{xxx.published | date: 'yyyyMMdd'}}</td>
+		</tr>
+	</table>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!--
+	数値によってバインドする文字列を変化させる ng-pluralize
+	count ：カウント数
+	when ：メッセージの値
+	offset ：削除する値
+-->
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+<meta charset="UTF-8" />
+<title>3-8</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.1/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.1/angular-message-format.min.js"></script>
+<script src="scripts/plurize_002.js"></script>
+</head>
+	
+	<table class="table">
+		<tr ng-repeat="fav in favs">
+			<td>{{fav}}</td>
+		</tr>
+	</table>
+
+	<body ng-controller="MyController">
+		<div ng-pluralize count="favs.length" offset="2"
+			when="{
+				'0'    : 'when=なし',
+				'1'    : 'when=１つ   {{favs[0]}}',
+				'2'    : 'when=２つ   {{favs[0]}} / {{favs[1]}}',
+				'one'  : 'when=１多い {{favs[0]}} / {{favs[1]}} + 1',
+				'other': 'when=多い   {{favs[0]}} / {{favs[1]}} + {}'
+			}">
+		</div>
+
+		<div>{{favs.length, plural, offset:2
+			=0    {なし}
+			=1    {１つ   {{favs[0]}}}
+			=2    {２つ   {{favs[0]}} / {{favs[1]}}}
+			one   {１多い {{favs[0]}} / {{favs[1]}} +1}
+			other {多い   {{favs[0]}} / {{favs[1]}} +#}
+		}}</div>
+	</body>
+</html>

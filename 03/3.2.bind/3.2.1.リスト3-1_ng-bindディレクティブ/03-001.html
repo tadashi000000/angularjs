@@ -1,0 +1,17 @@
+<!--
+	初期化時はAngularJS式{{}}でなくng-bindを使う
+-->
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<meta charset =" UTF-8"/>
+	<title>03-001</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.1/angular.min.js"></script>
+	<script src="controller.js"></script>
+</head>
+<body ng-controller="controllerA">
+	<input id="name" name="name" type="text" ng-model="xxx" />
+	<div>aaa{{xxx}}bbb</div>
+	<div ng-bind=" 'aaa' + xxx + 'bbb' "></div>
+</body>
+</html>
